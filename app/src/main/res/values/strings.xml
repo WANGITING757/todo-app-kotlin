@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">やることリスト</string>
+    <string name="hint_new_todo">新しいタスクを入力</string>
+    <string name="button_add">追加</string>
+    <string name="empty_message">タスクがありません\n上のフォームから追加してください</string>
+    <string name="stat_total">全部</string>
+    <string name="stat_completed">完了</string>
+    <string name="stat_uncompleted">未完了</string>
+</resources>
