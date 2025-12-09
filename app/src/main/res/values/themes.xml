@@ -4,6 +4,19 @@
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
     </style>
+    <!-- ========== 新增：Splash Screen テーマ ========== -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <!-- 背景色（青） -->
+        <item name="windowSplashScreenBackground">#2196F3</item>
 
-    <style name="Theme.TodoAppKotlin" parent="Base.Theme.TodoAppKotlin" />
+        <!-- アイコン -->
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_splash_logo</item>
+
+        <!-- アイコンの背景色 -->
+        <item name="windowSplashScreenIconBackgroundColor">#2196F3</item>
+
+        <!-- Splash後のテーマ -->
+        <item name="postSplashScreenTheme">@style/Base.Theme.TodoAppKotlin</item>
+    </style>
+
 </resources>
