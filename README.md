@@ -1,7 +1,7 @@
 # やることリスト (Android Kotlin版)
 
 ## 概要
-シンプルなタスク管理アプリ（Android ネイティブ版）
+REST API 統合とオフライン対応を備えたタスク管理アプリ
 
 ## スクリーンショット
 ![App Screenshot](screenshots/screenshot1.png)
@@ -12,6 +12,10 @@
 - タスクの削除
 - 完了数の統計表示
 - データの永続化（アプリを閉じても保存）
+- スプラッシュスクリーン（Android 12+）
+- REST API 統合
+- オフライン優先アーキテクチャ
+- 自動同期機能 
 
 ## 使用技術
 - **言語**: Kotlin
@@ -54,6 +58,17 @@
     - Room Database 使用
     - パフォーマンスが良い
 
+## API 統合
+
+### エンドポイント
+- Base URL: `https://jsonplaceholder.typicode.com/`
+- テスト用API（無料）
+
+### オフライン対応
+- Room による自動キャッシュ
+- ネットワーク復帰時の自動同期
+- API エラー時のローカルデータ使用
+
 ## 学んだこと
 - Kotlin の基本文法
 - MVVM アーキテクチャパターン
@@ -63,11 +78,8 @@
 - LiveData による UI 更新
 - ViewBinding の使用
 
-## 今後の改善予定
-- 期限設定とリマインダー
-
 ## 関連プロジェクト
 - Flutter Web版
 
 ## 作者
-[あなたの名前]
+[王依婷]
