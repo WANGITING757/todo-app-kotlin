@@ -9,6 +9,9 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todoapp.databinding.ActivityMainBinding
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
 
 /**
  * メインアクティビティ
@@ -40,6 +43,9 @@ class MainActivity : AppCompatActivity() {
 
         // LiveData の監視
         observeData()
+
+        // ========== 新增：初回同期 ==========
+        viewModel.syncWithServer()
     }
 
     /**
@@ -129,5 +135,21 @@ class MainActivity : AppCompatActivity() {
         binding.textTotal.text = total.toString()
         binding.textCompleted.text = completed.toString()
         binding.textUncompleted.text = uncompleted.toString()
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu_main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.action_sync -> {
+                viewModel.syncWithServer()
+                Toast.makeText(this, "同期中...", Toast.LENGTH_SHORT).show()
+                true
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
     }
 }

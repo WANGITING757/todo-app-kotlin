@@ -8,7 +8,6 @@ import kotlinx.coroutines.launch
 
 /**
  * Todo ViewModel
- * UIとデータ層の間のビジネスロジック
  */
 class TodoViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -19,6 +18,13 @@ class TodoViewModel(application: Application) : AndroidViewModel(application) {
         val todoDao = TodoDatabase.getDatabase(application).todoDao()
         repository = TodoRepository(todoDao)
         allTodos = repository.allTodos
+    }
+
+    /**
+     * サーバーと同期
+     */
+    fun syncWithServer() = viewModelScope.launch {
+        repository.syncWithServer()
     }
 
     /**
